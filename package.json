@@ -1,6 +1,6 @@
 {
   "name": "buffer-peek-stream",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Transform stream that lets you inspect the start of a ReadStream before deciding what to do with it",
   "main": "lib/index.js",
   "scripts": {
