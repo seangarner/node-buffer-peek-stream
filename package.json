@@ -1,0 +1,26 @@
+{
+  "name": "buffer-peek-stream",
+  "version": "0.1.0",
+  "description": "Transform stream that lets you inspect the start of a ReadStream before deciding what to do with it",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha test/buffer-peek-stream.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seangarner/node-buffer-peek-stream.git"
+  },
+  "keywords": [
+    "stream",
+    "peek",
+    "parse",
+    "buffer",
+    "inspect"
+  ],
+  "author": "Sean Garner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seangarner/node-buffer-peek-stream/issues"
+  },
+  "homepage": "https://github.com/seangarner/node-buffer-peek-stream"
+}
