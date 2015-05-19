@@ -1,5 +1,7 @@
 # node-buffer-peek-stream
 
+[![Build Status](https://travis-ci.org/seangarner/node-buffer-peek-stream.svg?branch=master)](https://travis-ci.org/seangarner/node-buffer-peek-stream)
+
 A Transform stream which lets you take a peek at the first bytes before unpiping itself and
 unshifting the buffer back onto the upstream stream leaving the original stream ready to be
 piped again onto its final destination.
