@@ -1,6 +1,7 @@
 # node-buffer-peek-stream
 
-A Transform stream which lets you take a peek at the first bytes before unpiping itself and unshifting the buffer back onto the upstream stream leaving the original stream ready to be
+A Transform stream which lets you take a peek at the first bytes before unpiping itself and
+unshifting the buffer back onto the upstream stream leaving the original stream ready to be
 piped again onto its final destination.
 
 ```
@@ -43,12 +44,6 @@ peek.once('data', function (buf) {
 
 stream.pipe(peek);
 ```
-
-
-## NOTICE
-This hasn't been run in production yet and hasn't gone through substantial testing.  The approach
-taken to unshift data back onto the origin stream in particular could turn out to be a bad idea when
-you try to peek at more bytes than are in the stream.
 
 
 ## Licence
