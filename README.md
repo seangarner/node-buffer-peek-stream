@@ -19,20 +19,20 @@ know its encoding then checkout [peek-stream](https://github.com/mafintosh/peek-
 ## Usage
 As a function...
 ```
-var peek = require('./buffer-peek-stream');
+var peek = require('buffer-peek-stream');
 var readstream = fs.createReadStream('package.json');
 
-peek(readstream, 65536, function (err, data) {
+peek(readstream, 65536, function (err, data, outputStream) {
   if (err) throw err;
 
-  // readstream is ready to be piped somewhere else
-  readstream.pipe(somewhere_else);
+  // outputStream is ready to be piped somewhere else
+  outputStream.pipe(somewhere_else);
 });
 ```
 
 As a stream...
 ```
-var PeekStream = require('./buffer-peek-stream').Constructor;
+var PeekStream = require('buffer-peek-stream').BufferPeekStream;
 
 var peek = new PeekStream(65536);
 var readstream = fs.createReadStream('package.json');
@@ -41,10 +41,12 @@ var readstream = fs.createReadStream('package.json');
 peek.once('data', function (buf) {
 
   // readstream is ready to be piped somewhere else
-  readstream.pipe(somewhere_else);
+  peek.pipe(somewhere_else);
 });
 
-stream.pipe(peek);
+readstream.pipe(peek);
+
+// alternatively pipe `peek` here instead of in `data` callback
 ```
 
 

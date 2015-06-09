@@ -1,5 +1,9 @@
 # buffer-peek-stream changelog
 
+## 1.0.1 (2015/06/09)
+
+  - documentation fixes (no code change)
+
 ## 1.0.0 (2015/05/19)
 
   - no changes other than bump to a stable version
