@@ -4,6 +4,7 @@ var RandStream = require('randstream');
 var TruncateStream = require('truncate-stream');
 var DevNullStream = require('dev-null-stream');
 var concat = require('concat-stream');
+var http = require('http');
 
 var peek = require('./buffer-peek-stream');
 
@@ -94,5 +95,25 @@ describe('peek', function() {
 
   //TODO: peeking inside gzip data (transform)
 
-  //TODO: peeking a http response
+  this.timeout(10000);
+  it('should peek an IncomingMessage stream', (done) => {
+
+
+    http.get('http://nodejs.org/dist/index.json', (res) => {
+      const statusCode = res.statusCode;
+
+      if (statusCode !== 200) {
+        return done(new Error(`Request Failed [${statusCode}]`));
+      }
+
+      peek(res, 1000, function (err, data, stream) {
+        if (err) return done(err);
+        const index_json = data.toString();
+        expect(index_json).to.have.string('"version"');
+        stream.resume();
+        done();
+      });
+
+    });
+  });
 });
