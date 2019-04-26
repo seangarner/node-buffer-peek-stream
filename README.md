@@ -37,8 +37,8 @@ var PeekStream = require('buffer-peek-stream').BufferPeekStream;
 var peek = new PeekStream(65536);
 var readstream = fs.createReadStream('package.json');
 
-// peek will only emit the data event once
-peek.once('data', function (buf) {
+// peek will only emit the peek event once
+peek.once('peek', function (buf) {
 
   // readstream is ready to be piped somewhere else
   peek.pipe(somewhere_else);
