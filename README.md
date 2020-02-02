@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/seangarner/node-buffer-peek-stream.svg?branch=master)](https://travis-ci.org/seangarner/node-buffer-peek-stream)
 
-A Transform stream which lets you take a peek at the first bytes before unpiping itself and
-unshifting the buffer back onto the upstream stream leaving the original stream ready to be
-piped again onto its final destination.
+Take a peek at the start of a stream and get back a new stream rewound from the start without
+buffering the entire stream.  Useful when you need to inspect the start of the stream before
+deciding what to do with the stream.
 
 ```
 npm install buffer-peek-stream
@@ -17,7 +17,18 @@ know its encoding then checkout [peek-stream](https://github.com/mafintosh/peek-
 
 
 ## Usage
-As a function...
+As a promise (with await)...
+```
+const peek = require('buffer-peek-stream').promise;
+const readstream = fs.createReadStream('package.json');
+
+const [data, outputStream] = await peek(readstream, 65536);
+
+// outputStream is ready to be piped somewhere else
+outputStream.pipe(somewhere_else);
+```
+
+As a callback...
 ```
 var peek = require('buffer-peek-stream');
 var readstream = fs.createReadStream('package.json');
