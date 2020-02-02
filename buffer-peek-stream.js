@@ -13,9 +13,18 @@ function peek(source, bytes, callback) {
   return source.pipe(dest);
 }
 peek.BufferPeekStream = BufferPeekStream;
+peek.promise = promise;
 
 module.exports = peek;
 
+function promise(source, bytes) {
+  return new Promise((resolve, reject) => {
+    peek(source, bytes, (err, buffer, dest) => {
+      if (err) return reject(err);
+      resolve([buffer, dest]);
+    })
+  })
+}
 
 function BufferPeekStream(opts) {
   if (!opts) opts = {};

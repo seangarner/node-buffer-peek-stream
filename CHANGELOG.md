@@ -1,5 +1,10 @@
 # buffer-peek-stream changelog
 
+## 1.1.0 (2020/02/02)
+
+  - add promise interface
+  - drop tests for node 4 & 6
+
 ## 1.0.1 (2015/06/09)
 
   - documentation fixes (no code change)

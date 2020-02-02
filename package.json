@@ -1,7 +1,7 @@
 {
   "name": "buffer-peek-stream",
-  "version": "1.0.1",
-  "description": "Transform stream that lets you inspect the start of a ReadStream before deciding what to do with it",
+  "version": "1.1.0",
+  "description": "Transform stream that lets you inspect the start of a readable stream before deciding what to do with it",
   "main": "buffer-peek-stream.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha test.js"
@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/seangarner/node-buffer-peek-stream",
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^4.2.0",
     "concat-stream": "^1.4.6",
     "dev-null-stream": "0.0.1",
-    "mocha": "^2.0.1",
+    "mocha": "^6.2.1",
     "randstream": "^0.3.2",
     "truncate-stream": "^1.0.1"
   }

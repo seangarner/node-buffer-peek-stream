@@ -93,6 +93,20 @@ describe('peek', function() {
     });
   });
 
+  describe('promise', () => {
+    it('should return a promise which resolves a tuple with buffer & forward stream', (done) => {
+      const promise = peek.promise(make(50000), 1000);
+      promise.then(([buffer, stream]) => {
+        expect(buffer).to.be.an.instanceof(Buffer);
+        expect(buffer).to.have.lengthOf(1000);
+        stream.pipe(concat((data) => {
+          expect(data).to.have.lengthOf(50000);
+          done();
+        }));
+      });
+    });
+  });
+
   //TODO: peeking inside gzip data (transform)
 
   this.timeout(10000);
