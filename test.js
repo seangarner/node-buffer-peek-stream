@@ -4,7 +4,7 @@ var RandStream = require('randstream');
 var TruncateStream = require('truncate-stream');
 var DevNullStream = require('dev-null-stream');
 var concat = require('concat-stream');
-var http = require('http');
+var https = require('https');
 
 var peek = require('./buffer-peek-stream');
 
@@ -113,7 +113,7 @@ describe('peek', function() {
   it('should peek an IncomingMessage stream', (done) => {
 
 
-    http.get('http://nodejs.org/dist/index.json', (res) => {
+    https.get('https://nodejs.org/dist/index.json', (res) => {
       const statusCode = res.statusCode;
 
       if (statusCode !== 200) {
