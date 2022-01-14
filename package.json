@@ -2,8 +2,10 @@
   "name": "buffer-peek-stream",
   "version": "1.1.0",
   "description": "Transform stream that lets you inspect the start of a readable stream before deciding what to do with it",
-  "main": "buffer-peek-stream.js",
+  "main": "dist/buffer-peek-stream.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "node_modules/mocha/bin/mocha test.js"
   },
   "repository": {
@@ -16,7 +18,8 @@
     "peek",
     "parse",
     "buffer",
-    "inspect"
+    "inspect",
+    "typescript"
   ],
   "author": "Sean Garner",
   "license": "MIT",
@@ -25,11 +28,14 @@
   },
   "homepage": "https://github.com/seangarner/node-buffer-peek-stream",
   "devDependencies": {
+    "@types/concat-stream": "^1.6.1",
+    "@types/node": "^17.0.8",
     "chai": "^4.3.4",
     "concat-stream": "^1.4.6",
     "dev-null-stream": "0.0.1",
     "mocha": "^9.0.2",
     "randstream": "^0.3.2",
-    "truncate-stream": "^1.0.1"
+    "truncate-stream": "^1.0.1",
+    "typescript": "^4.5.4"
   }
 }
